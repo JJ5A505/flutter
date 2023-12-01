@@ -15,28 +15,28 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Email',
+          'Usuario',
           style: kLabelStyle,
         ),
-        const SizedBox(height: 10.0),
+        const SizedBox(height: 20.0),
         Container(
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
-          height: 60.0,
+          height: 45.0,
           child: TextField(
             keyboardType: TextInputType.emailAddress,
             style: const TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontFamily: 'OpenSans',
             ),
             decoration: InputDecoration(
               border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
+              contentPadding: EdgeInsets.only(top: 10.0),
               prefixIcon: const Icon(
                 Icons.email,
                 color: Colors.white,
               ),
-              hintText: 'Enter your Email',
+              hintText: 'Ingresa tu correo o usuario',
               hintStyle: kHintTextStyle,
             ),
           ),
@@ -50,28 +50,28 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Password',
+          'Contraseña',
           style: kLabelStyle,
         ),
-        const SizedBox(height: 10.0),
+        const SizedBox(height: 20.0),
         Container(
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
-          height: 60.0,
+          height: 45.0,
           child: TextField(
             obscureText: true,
             style: const TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontFamily: 'OpenSans',
             ),
             decoration: InputDecoration(
               border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
+              contentPadding: EdgeInsets.only(top: 10.0),
               prefixIcon: const Icon(
                 Icons.lock,
                 color: Colors.white,
               ),
-              hintText: 'Enter your Password',
+              hintText: 'Ingresa tu contraseña',
               hintStyle: kHintTextStyle,
             ),
           ),
@@ -82,28 +82,39 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildForgotPasswordBtn() {
     return Container(
-      alignment: Alignment.centerRight,
+      
+      alignment: Alignment.centerLeft,
+      margin: EdgeInsets.all(8),
       child: ElevatedButton(
-        onPressed: () => print('Forgot Password Button Pressed'),
-        child: Text(
-          'Forgot Password?',
-          style: kLabelStyle,
+        
+        onPressed: () => print('Se me olvido la contrasena :('),
+        child: const Text(
+          'Olvide mi contraseña',
+          style: TextStyle(
+            color: Colors.black,
+            letterSpacing: 0.3,
+            fontSize: 11.0,
+            fontWeight: FontWeight.normal,
+            fontFamily: 'OpenSans',
+          
+          ) ,
+         
         ),
       ),
     );
   }
 
   Widget _buildRememberMeCheckbox() {
-    return Container(
-      height: 20.0,
+    return Container( 
+      height: 25.0,
       child: Row(
         children: <Widget>[
           Theme(
-            data: ThemeData(unselectedWidgetColor: Colors.white),
+            data: ThemeData(unselectedWidgetColor: Colors.grey),
             child: Checkbox(
               value: _rememberMe,
-              checkColor: Colors.green,
-              activeColor: Colors.white,
+              checkColor: Colors.white,
+              activeColor: Colors.blueAccent,
               onChanged: (value) {
                 setState(() {
                   _rememberMe = value!;
@@ -112,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           Text(
-            'Remember me',
+            'Recuerdame',
             style: kLabelStyle,
           ),
         ],
@@ -122,17 +133,17 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildLoginBtn() {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 25.0),
+      padding: const EdgeInsets.symmetric(vertical: 20.0),
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () => print('Login Button Pressed'),
+        onPressed: () => print('Iniciciar sesion precionado'),
         child: const Text(
-          'LOGIN',
+          'Iniciar sesion',
           style: TextStyle(
             color: Color(0xFF527DAA),
-            letterSpacing: 1.5,
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
+            letterSpacing: 1.9,
+            fontSize: 20.0,
+            fontWeight: FontWeight.normal,
             fontFamily: 'OpenSans',
           ),
         ),
@@ -144,15 +155,15 @@ class _LoginScreenState extends State<LoginScreen> {
     return Column(
       children: <Widget>[
         const Text(
-          '- OR -',
+          '- O -',
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.blueAccent,
             fontWeight: FontWeight.w400,
           ),
         ),
         const SizedBox(height: 20.0),
         Text(
-          'Sign in with',
+          'Iniciar sesion con..',
           style: kLabelStyle,
         ),
       ],
@@ -170,7 +181,7 @@ class _LoginScreenState extends State<LoginScreen> {
           color: Colors.white,
           boxShadow:  [
             BoxShadow(
-              color: Colors.black26,
+              color: Colors.blue,
               offset: Offset(0, 2),
               blurRadius: 6.0,
             ),
@@ -190,11 +201,11 @@ class _LoginScreenState extends State<LoginScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           _buildSocialBtn(
-            () => print('Login with Facebook'),
+            () => print('Iniciar con Facebook'),
             const AssetImage('assets/logos/facebook.jpg'),
           ),
           _buildSocialBtn(
-            () => print('Login with Google'),
+            () => print('Iniciar con Google'),
             const AssetImage('assets/logos/google.jpg'),
           ),
         ],
@@ -204,22 +215,22 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildSignupBtn() {
     return GestureDetector(
-      onTap: () => print('Sign Up Button Pressed'),
+      onTap: () => print('Registrarse precionado'),
       child: RichText(
         text: const TextSpan(
           children: [
             TextSpan(
-              text: 'Don\'t have an Account? ',
+              text: 'No tienes una cuenta? ',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w300,
               ),
             ),
             TextSpan(
-              text: 'Sign Up',
+              text: 'Registrarse',
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.blueAccent,
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
               ),
@@ -247,12 +258,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Color(0xFF73AEF5),
-                      Color(0xFF61A4F1),
-                      Color(0xFF478DE0),
-                      Color(0xFF398AE5),
+                      Colors.black,
+                      Colors.black,
+                      Colors.grey,
+                      Colors.blueGrey,
                     ],
-                    stops: [0.1, 0.4, 0.7, 0.9],
+                    stops: [0.1, 0.49, 0.75, 0.94],
                   ),
                 ),
               ),
@@ -268,7 +279,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       const Text(
-                        'Sign In',
+                        'Iniciar sesion',
                         style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'OpenSans',
